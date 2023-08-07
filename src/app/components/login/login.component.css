@@ -1,0 +1,63 @@
+/* login.component.css */
+
+.form-login {
+    text-align: center;
+    background-color: black;
+    padding: 1.25rem 2.5rem;
+    border: 1px solid rgb(219, 219, 219);
+    margin-bottom: 10px;
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+    border-radius: 20px;
+}
+
+.form-login input {
+    width: 100%;
+    color: #000000;
+    box-sizing: border-box;
+    font-size: 0.7rem;
+    padding: 13px 0 13px 8px;
+    border: 1px solid #dbdbdb;
+    margin: 10px 0;
+    border-radius: 3px;
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+}
+
+.form-login button {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    background-color:rgba(200, 81, 3, 0.3);
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid white;
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.section-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.main {
+    position: relative;
+    column-gap: 1.25rem;
+    margin-bottom: 100px;
+}
+
+.text-form {
+    color: white;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin-top: 30px;
+}
