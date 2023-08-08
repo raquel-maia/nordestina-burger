@@ -1,5 +1,6 @@
 /* login.component.css */
 
+
 .form-login {
     text-align: center;
     background-color: black;
@@ -16,7 +17,7 @@
     color: #000000;
     box-sizing: border-box;
     font-size: 0.7rem;
-    padding: 13px 0 13px 8px;
+    padding: 13px 8px;
     border: 1px solid #dbdbdb;
     margin: 10px 0;
     border-radius: 3px;
@@ -28,7 +29,7 @@
     width: 100%;
     padding: 8px;
     border-radius: 4px;
-    background-color:rgba(200, 81, 3, 0.3);
+    background-color: rgba(200, 81, 3, 0.3);
     color: #fff;
     cursor: pointer;
     border: 1px solid white;
@@ -56,8 +57,38 @@
 }
 
 img {
-    display: flex;
-    justify-content: center;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     margin-top: 30px;
 }
+
+@media (min-width: 992px) {
+
+    section {
+        margin: 40px 0;
+    }
+
+    .main {
+        column-gap: 1.25rem;
+
+    }
+
+    .section-column {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    .form-login {
+        margin: 50px 0 0 0;
+        padding: 30px;
+    }
+
+    img{
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
