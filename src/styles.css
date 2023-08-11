@@ -3,6 +3,7 @@ body{
     margin: 0; 
     padding: 0;
     background-color: #8B4513;
+    font-family: 'Righteous', cursive;
 }
 
 @media (min-width: 992px) {

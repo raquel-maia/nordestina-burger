@@ -1,0 +1,153 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    margin: auto;
+}
+
+input {
+    text-align: center;
+}
+
+.name {
+    position: relative;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px;
+    color: black;
+    margin-bottom: 5px;
+}
+
+img {
+    width: 80%; 
+    margin-bottom: 10px;
+    margin-left: 20%; 
+    margin-right: auto; 
+}
+
+
+.text-pedido {
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 5px;
+    
+}
+
+ul {
+    display: block;
+    list-style: none;
+    padding: 0; 
+}
+
+li {
+    text-align: center;
+    padding: 5px 0; 
+}
+
+button {
+    
+    width: 100%; 
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 20px; 
+    background-color: black;
+    color: white;
+    font-weight: 400;
+    border: 2px solid white;
+    margin-bottom: 5px;
+}
+.button-back{
+    margin-left: 80%;
+    background-color: #D9D9D9;
+    color: black;
+    font-weight: 600;
+    width: 100px;
+    font-size: 15px;
+    margin: 25px  0px 0px  80%;
+    padding: 4px;
+}
+
+
+@media (min-width: 992px) {
+    .container {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 20px;
+        align-items: center;
+        justify-content: flex-start; /* Adicionado para alinhar à esquerda */
+        margin-bottom: 0;
+        height: 90vh;
+        margin: auto;
+    }
+
+    .text-pedido {
+        text-align: center;
+        color: white;
+        font-weight: 400;
+        font-size: 40px;
+        padding: 14px;
+        margin-bottom: 70px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        border-radius: 20px;
+        font-size: 30px;
+        background-color: black;
+        color: white;
+        font-weight: 600;
+        border: 2px solid white;
+        margin-bottom: 10px;
+    }
+
+    .name {
+        position: relative;
+        font-family: 'Righteous', cursive;
+        border-radius: 10px;
+        font-size: 20px;
+        padding: 10px;
+        color: black;
+        font-weight: 600;
+        background-color: white;
+        margin-bottom: 15px;
+    }
+
+    .img-hamburguer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+
+img {
+        width: 690px;
+        height: 600px;
+        margin: 0;
+        margin-right: -6px;
+}
+
+.button-back {
+        position: absolute;
+        bottom: 80px; 
+        right: 10px;
+        background-color: #D9D9D9;
+        color: black;
+        font-weight: 600;
+        width: 116px;
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+

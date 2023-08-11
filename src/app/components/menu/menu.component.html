@@ -1,0 +1,24 @@
+
+<div class="container">
+    <div class="img-hamburguer">
+        <img src="../../../assets/hamburguer.png" alt="foto de hamburguer">
+    </div>
+    <ul class="buttons">
+        <h1 class="text-pedido">FAÇA SEU PEDIDO:</h1>
+        <input type="text" class="name" id="clientName" [(ngModel)]="clientName" placeholder="NOME DO CLIENTE">
+        <li>
+            <button (click)="goToPedido('Hamburgueres')">HAMBÚRGUERES</button>
+        </li>
+        <li>
+            <button (click)="goToPedido('Café da Manhã')">CAFÉ DA MANHÃ</button>
+        </li>
+        <li>
+            <button (click)="goToPedido('Bebidas')">BEBIDAS</button>
+        </li>
+        <button class="button-back" (click)=" ('voltar')">VOLTAR</button>
+    </ul>
+    
+</div>
+
+
+
