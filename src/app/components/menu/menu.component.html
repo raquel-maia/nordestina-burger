@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="img-hamburguer">
         <img src="../../../assets/hamburguer.png" alt="foto de hamburguer">
@@ -6,6 +5,7 @@
     <ul class="buttons">
         <h1 class="text-pedido">FAÇA SEU PEDIDO:</h1>
         <input type="text" class="name" id="clientName" [(ngModel)]="clientName" placeholder="NOME DO CLIENTE">
+        <p class="error-message" *ngIf="showErrorMessage">Por favor, insira o nome do cliente.</p>
         <li>
             <button (click)="goToPedido('Hamburgueres')">HAMBÚRGUERES</button>
         </li>
@@ -15,10 +15,6 @@
         <li>
             <button (click)="goToPedido('Bebidas')">BEBIDAS</button>
         </li>
-        <button class="button-back" (click)=" ('voltar')">VOLTAR</button>
+        <button class="button-back" (click)="goToLogin()">VOLTAR</button>
     </ul>
-    
 </div>
-
-
-

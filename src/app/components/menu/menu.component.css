@@ -76,6 +76,10 @@ button {
     padding: 4px;
 }
 
+.error-message{
+    color: white;
+}
+
 
 @media (min-width: 992px) {
     .container {

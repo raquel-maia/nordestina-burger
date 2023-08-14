@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'; // Certifique-se de ter importado o Router corretamente
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -8,11 +8,20 @@ import { Router } from '@angular/router'; // Certifique-se de ter importado o Ro
 })
 export class MenuComponent {
   clientName: string = '';
+  showErrorMessage: boolean = false;
 
-  constructor(private router: Router) {} // Certifique-se de que o Router esteja injetado corretamente
+  constructor(private router: Router) {}
 
   goToPedido(category: string): void {
-    this.router.navigate(['/pedido', category]);
+    if (this.clientName.trim() === '') {
+      this.showErrorMessage = true;
+    } else {
+      this.showErrorMessage = false;
+      this.router.navigate(['/pedido', category]);
+    }
+  }
+
+  goToLogin(): void {
+    this.router.navigate(['/']); // Substitua '/login' pelo caminho correto da página de login
   }
 }
-

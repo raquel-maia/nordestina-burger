@@ -11,6 +11,10 @@
     border-radius: 20px;
 }
 
+.error-message{
+    color: white;
+}
+
 .form-login input {
     width: 100%;
     color: #000000;
