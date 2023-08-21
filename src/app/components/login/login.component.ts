@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { LocalStorageService } from '../../services/localStorage/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -7,33 +10,73 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username: string = '';
   email: string = '';
   password: string = '';
-  showUsernameError: boolean = false;
-  showEmailError: boolean = false;
+  private loginSubscription: Subscription | undefined;
+  public errorMessage: string | undefined;
+  public emailError: boolean = false;
+  public passwordError: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private readonly service: LoginService,
+    private readonly router: Router,
+    private readonly localStorageService: LocalStorageService
+  ) {}
 
   onSubmit() {
-    this.showUsernameError = false;
-    this.showEmailError = false;
+    // Reset previous error flags and messages
+    this.errorMessage = undefined;
+    this.emailError = false;
+    this.passwordError = false;
 
-    if (this.username.trim() === '') {
-      this.showUsernameError = true;
+    // Check if email and password are provided
+    if (!this.email) {
+      this.emailError = true;
+    } else if (!this.validateEmail(this.email)) {
+      this.emailError = true;
+      return;
+    }
+    if (!this.password) {
+      this.passwordError = true;
+    }
+
+    // If there are errors, exit
+    if (this.emailError || this.passwordError) {
       return;
     }
 
-    if (!this.isValidEmail(this.email)) {
-      this.showEmailError = true;
-      return;
-    }
-
-    this.router.navigate(['/cardapio']);
+    this.loginSubscription = this.service.login(this.email, this.password).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        console.log('accessToken:', response.accessToken);
+        if (response.accessToken && response.user && response.user.role) {
+          this.localStorageService.setItem('user_data', response.user);
+          this.localStorageService.setItem('accessToken', response.accessToken);
+          switch (response.user.role) {
+            case 'atendente':
+              this.router.navigate(['/cardapio']);
+              break;
+            default:
+              console.error('Função de usuário inválida:', response.user.role);
+          }
+        }
+      },
+      error: (error: any) => {
+        console.error('falha no login:', error);
+        if (error.status === 400) {
+          this.errorMessage = 'Senha incorreta';
+        } else if (error.status === 404) {
+          this.errorMessage = 'Usuário inexistente';
+        } else {
+          this.errorMessage = 'Erro desconhecido';
+        }
+      }
+    });
   }
 
-  private isValidEmail(email: string): boolean {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  validateEmail(email: string): boolean {
+    // Email regex pattern
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(email);
   }
 }

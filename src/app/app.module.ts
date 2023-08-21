@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Importe o ReactiveFormsModule
+import { HttpClientModule } from '@angular/common/http'; // Importe o HttpClientModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,8 @@ import { FooterComponent } from './components/commons/footer/footer.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule, // Adicione o ReactiveFormsModule
+    HttpClientModule, // Adicione o HttpClientModule
     AppRoutingModule
   ],
   providers: [],

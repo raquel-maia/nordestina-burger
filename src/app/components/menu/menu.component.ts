@@ -17,7 +17,7 @@ export class MenuComponent {
       this.showErrorMessage = true;
     } else {
       this.showErrorMessage = false;
-      this.router.navigate(['/pedido', category]);
+      this.router.navigate(['/order'], { queryParams: { filter: category } });
     }
   }
 
@@ -25,3 +25,4 @@ export class MenuComponent {
     this.router.navigate(['/']); // Substitua '/login' pelo caminho correto da página de login
   }
 }
+

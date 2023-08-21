@@ -1,0 +1,64 @@
+<main class="main">
+    <div class="logo-one">
+        <img src="../../../assets/logo-white.png" alt="nordestina-burger">
+    </div>
+    <section class="section-column">
+        <h1 class="title">SELECIONE SEU PEDIDO</h1>
+        <div class="buttons-container">
+            <button class="filter-button" (click)="filter('Hamburgueres')">Hambúrgueres</button>
+            <button class="filter-button" (click)="filter('Café da Manhã')">Café da Manhã</button>
+            <button class="filter-button" (click)="filter('Bebidas')">Bebidas</button>
+        </div>
+        <div class="product-container" *ngIf="selectedFilter === 'Hamburgueres'">
+            <h2 class="product-title">Hambúrgueres</h2>
+            <div class="product" (click)="addItem(products[selectedFilter][0])">
+                <p class="product-name">CuscuzBurger</p>
+                <p class="product-price">R$ 20</p>
+            </div>
+        </div>
+        <div class="product-container" *ngIf="selectedFilter === 'Café da Manhã'">
+            <h2 class="product-title">Café da Manhã</h2>
+            <div class="product" (click)="addItem(products[selectedFilter][0])">
+                <p class="product-name">Cuscuz com Ovo</p>
+                <p class="product-price">R$ 15</p>
+            </div>
+            <div class="product02" (click)="addItem(products[selectedFilter][1])">
+                <p class="product-name">Tapioca</p>
+                <p class="product-price">R$ 20</p>
+            </div>
+            <div class="product03" (click)="addItem(products[selectedFilter][2])">
+                <p class="product-name">Tapioca</p>
+                <p class="product-price">R$ 20</p>
+            </div>
+        </div>
+        <div class="product-container" *ngIf="selectedFilter === 'Bebidas'">
+            <h2 class="product-title">Bebidas</h2>
+            <div class="product01" (click)="addItem(products[selectedFilter][0])">
+                <p class="product-name">Café</p>
+                <p class="product-price">R$ 5</p>
+            </div>
+        </div>
+
+        <hr> <!-- Linha de separação -->
+
+
+
+
+        <div class="order-summary" *ngIf="selectedFilter">
+            <h2 class="summary-title">Resumo da Compra</h2>
+                    <!-- Nome do cliente -->
+                    <div class="client-name-container">
+                        <label for="clientName" class="client-name-label">Nome do Cliente:</label>
+                        <input type="text" id="clientName" [(ngModel)]="clientName" class="client-name-input" placeholder="Digite o nome do cliente">
+                       </div>
+            <div *ngFor="let item of selectedItems">
+                <p class="item-name">{{ item.name }}</p>
+                <p class="item-quantity">Quantidade: {{ item.quantity }}</p>
+                <p class="item-price">Valor: R$ {{ item.price }}</p>
+                <button class="item-remove" (click)="removeItem(item)">Remover</button>
+            </div>
+            <p class="total">Total: R$ {{ calculateTotal() }}</p>
+            <button class="send-button" (click)="sendOrder()">Enviar Pedido</button>
+        </div>
+    </section>
+</main>

@@ -4,19 +4,18 @@
         <form class="form-login" (ngSubmit)="onSubmit()">
             <p class="text-form">Adicione seus dados para começar:</p>
             <div>
-                <input type="text" id="username-input" name="username" [(ngModel)]="username" placeholder="Nome de Usuário" required>
-                <p class="error-message" *ngIf="showUsernameError">Por favor, insira um nome de usuário válido.</p>
-            </div>
-            <div>
                 <input type="email" id="email-input" name="email" [(ngModel)]="email" placeholder="E-mail" required>
-                <p class="error-message" *ngIf="showEmailError">Por favor, insira um e-mail válido.</p>
+                <div *ngIf="emailError" class="error-message">Por favor, insira um endereço de e-mail.</div>
             </div>
             <div>
                 <input type="password" id="password-input" name="password" [(ngModel)]="password" placeholder="Senha" required>
+                <div *ngIf="passwordError" class="error-message">Por favor, insira a senha.</div>
             </div>
             <div>
                 <button type="submit" class="acessar-button">ENTRAR</button>
             </div>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
         </form>
     </section>
 </main>
+
