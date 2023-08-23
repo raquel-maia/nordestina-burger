@@ -7,13 +7,7 @@
         <input type="text" class="name" id="clientName" [(ngModel)]="clientName" placeholder="NOME DO CLIENTE">
         <p class="error-message" *ngIf="showErrorMessage">Por favor, insira o nome do cliente.</p>
         <li>
-            <button (click)="goToPedido('Hamburgueres')">HAMBÚRGUERES</button>
-        </li>
-        <li>
-            <button (click)="goToPedido('Café da Manhã')">CAFÉ DA MANHÃ</button>
-        </li>
-        <li>
-            <button (click)="goToPedido('Bebidas')">BEBIDAS</button>
+            <button (click)="goToPedido('selection')">SELECIONE AQUI O SEU PEDIDO</button>
         </li>
         <button class="button-back" (click)="goToLogin()">VOLTAR</button>
     </ul>

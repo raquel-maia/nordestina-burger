@@ -1,36 +1,44 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductsService } from 'src/app/services/products/products.service';// Verifique o caminho correto para ProductService
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css']
 })
-export class OrderComponent {
+export class OrderComponent implements OnInit {
   selectedFilter: string = '';
   selectedItems: any[] = [];
-  clientName: string = ''; // Adicione esta linha para armazenar o nome do cliente
+  clientName: string = '';
+  products: any = {};
 
-  products = {
-    'Hamburgueres': [
-      { name: 'CuscuzBurger', price: 20 }
-    ],
-    'Café da Manhã': [
-      { name: 'Cuscuz com Ovo', price: 15 },
-      { name: 'Tapioca', price: 20 }
-    ],
-    'Bebidas': [
-      { name: 'Café', price: 5 }
-    ]
-  };
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private productService: ProductsService
+  ) {}
 
-  filter(filterType: string): void {
-    this.selectedFilter = filterType;
-    this.selectedItems = [];
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.selectedFilter = params['filter'];
+    });
+
+    // Obter produtos da API
+    this.productService.getItems().subscribe(
+      (productsResponse: any) => {
+        this.products = productsResponse;
+        console.log('Products:', this.products);
+      },
+      (error: any) => {
+        console.error('Erro ao obter produtos:', error);
+      }
+    );
   }
 
   addItem(item: any): void {
-    this.selectedItems.push(item);
+    const selectedItem = { ...item, quantity: 1 };
+    this.selectedItems.push(selectedItem);
   }
 
   removeItem(item: any): void {
@@ -44,6 +52,14 @@ export class OrderComponent {
     return this.selectedItems.reduce((total, item) => total + item.price, 0);
   }
 
+  selectFilter(filter: string): void {
+    this.selectedFilter = filter;
+    this.selectedItems = []; // Limpar os itens selecionados
+  }
+
+  goToLogin(): void {
+    this.router.navigate(['/']); 
+  }
 
   sendOrder(): void {
     console.log('Pedido enviado:', {
