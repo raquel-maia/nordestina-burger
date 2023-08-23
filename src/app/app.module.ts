@@ -14,7 +14,7 @@ import { FooterComponent } from './components/commons/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule, // Certifique-se de importar o FormsModule
     ReactiveFormsModule, // Adicione o ReactiveFormsModule
     HttpClientModule, // Adicione o HttpClientModule
     AppRoutingModule

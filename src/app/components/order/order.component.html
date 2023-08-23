@@ -1,45 +1,46 @@
 <main class="main">
     <div class="logo-one">
-        <img src="../../../assets/logo-white.png" alt="nordestina-burger">
+      <img src="../../../assets/logo-white.png" alt="nordestina-burger">
     </div>
     <section class="section-column">
-        <h1 class="title">SELECIONE SEU PEDIDO</h1>
-        
-        <!-- Botões para selecionar os tipos de produtos -->
-        <div class="product-filters">
-            <button class="filter-button" (click)="selectFilter('Hamburgueres')">Hamburgueres</button>
-            <button class="filter-button" (click)="selectFilter('Café da Manhã')">Café da Manhã</button>
-            <button class="filter-button" (click)="selectFilter('Bebidas')">Bebidas</button>
+      <h1 class="title">SELECIONE SEU PEDIDO</h1>
+      <div class="product-filters">
+        <button class="filter-button" (click)="onClick('hamburgueres')">Hamburgueres</button>
+        <button class="filter-button" (click)="onClick('cafe da manha')">Café da Manhã</button>
+        <button class="filter-button" (click)="onClick('bebidas')">Bebidas</button>
+      </div>
+  
+      <ng-container *ngIf="items.length > 0">
+        <!-- <h2 class="product-title">{{ type }}</h2> -->
+        <div class="product-container" *ngFor="let product of items">
+          <div class="product" (click)="moverItem(product)">
+            <p class="product-name">{{ product.name }}</p>
+            <p class="product-price">R$ {{ product.price }}</p>
+          </div>
         </div>
-
-        <!-- Listagem de produtos conforme filtro selecionado -->
-        <div *ngIf="selectedFilter">
-            <h2 class="product-title">{{ selectedFilter }}</h2>
-            <div class="product-container" *ngFor="let product of products[selectedFilter]">
-                <div class="product" (click)="addItem(product)">
-                    <p class="product-name">{{ product.name }}</p>
-                    <p class="product-price">R$ {{ product.price }}</p>
-                </div>
-            </div>
+      </ng-container>
+  
+      <hr>
+      
+      <div class="order-summary" *ngIf="destinoItems.length > 0">
+        <h2 class="summary-title">Resumo da Compra</h2>
+        <div class="nameClient">
+            <input type="text" placeholder="Nome do cliente">
+          </div>
+        <div *ngFor="let item of destinoItems">
+          <p class="item-name">{{ item.name }}</p>
+          <div class="quantity-control">
+            <button class="quantity-button" (click)="decrementQuantity(item)">-</button>
+            <p class="item-quantity">{{ item.quantity }}</p>
+            <button class="quantity-button" (click)="incrementQuantity(item)">+</button>
+          </div>
+          <p class="item-price">Valor: R$ {{ item.price }}</p>
+          <button class="item-remove" (click)="decrementQuantity(item)">Remover</button>
         </div>
-
-        <hr> <!-- Linha de separação -->
-
-        <div class="order-summary" *ngIf="selectedFilter">
-            <h2 class="summary-title">Resumo da Compra</h2>
-            <div class="client-name-container">
-                <label for="clientName" class="client-name-label">Nome do Cliente:</label>
-                <input type="text" id="clientName" [(ngModel)]="clientName" class="client-name-input" placeholder="Digite o nome do cliente">
-            </div>
-            <div *ngFor="let item of selectedItems">
-                <p class="item-name">{{ item.name }}</p>
-                <p class="item-quantity">Quantidade: {{ item.quantity }}</p>
-                <p class="item-price">Valor: R$ {{ item.price }}</p>
-                <button class="item-remove" (click)="removeItem(item)">Remover</button>
-            </div>
-            <p class="total">Total: R$ {{ calculateTotal() }}</p>
-            <button class="send-button" (click)="sendOrder()">Enviar Pedido</button>
-        </div>
-        <button class="button-back" (click)="goToLogin()">SAIR</button>
+        <p class="total">Total: R$ {{ calcularQuantidadeTotal() }}</p>
+        <button class="send-button" (click)="enviar()">Enviar Pedido</button>
+      </div>
+      <button class="button-back" (click)="goToLogin()">SAIR</button>
     </section>
-</main>
+  </main>
+  

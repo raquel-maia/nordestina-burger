@@ -17,7 +17,7 @@ export class MenuComponent {
       this.showErrorMessage = true;
     } else {
       this.showErrorMessage = false;
-      this.router.navigate(['/order'], { queryParams: { filter: category } });
+      this.router.navigate(['/order']/* , { queryParams: { filter: category }  */);
     }
   }
 

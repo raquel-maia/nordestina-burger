@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from 'src/app/services/products/products.service';// Verifique o caminho correto para ProductService
+import { Router } from '@angular/router';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'app-order',
@@ -8,63 +8,56 @@ import { ProductsService } from 'src/app/services/products/products.service';// 
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  selectedFilter: string = '';
-  selectedItems: any[] = [];
-  clientName: string = '';
-  products: any = {};
+  items: any[] = [];
+  destinoItems: any[] = [];
+  type: string = 'hamburgueres';
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private productService: ProductsService
+    private dataService: ProductsService,
+    private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.selectedFilter = params['filter'];
+  onClick(param: string) {
+    this.type = param; // Atualiza o tipo com base no parâmetro
+    this.dataService.getItems().subscribe((data: any) => {
+      this.items = data.filter((item: any) => item.type === this.type);
     });
+  }
+  
 
-    // Obter produtos da API
-    this.productService.getItems().subscribe(
-      (productsResponse: any) => {
-        this.products = productsResponse;
-        console.log('Products:', this.products);
-      },
-      (error: any) => {
-        console.error('Erro ao obter produtos:', error);
-      }
-    );
+  moverItem(item: any) {
+    const itemCopy = { ...item, quantity: 1 };
+    this.destinoItems.push(itemCopy);
   }
 
-  addItem(item: any): void {
-    const selectedItem = { ...item, quantity: 1 };
-    this.selectedItems.push(selectedItem);
+  incrementQuantity(item: any) {
+    item.quantity++;
   }
 
-  removeItem(item: any): void {
-    const index = this.selectedItems.indexOf(item);
-    if (index !== -1) {
-      this.selectedItems.splice(index, 1);
+  decrementQuantity(item: any) {
+    if (item.quantity > 0) {
+      item.quantity--;
     }
   }
 
-  calculateTotal(): number {
-    return this.selectedItems.reduce((total, item) => total + item.price, 0);
+  calcularQuantidadeTotal(): number {
+    return this.destinoItems.reduce((total, item) => total + (item.quantity * item.price), 0);
   }
 
-  selectFilter(filter: string): void {
-    this.selectedFilter = filter;
-    this.selectedItems = []; // Limpar os itens selecionados
+  ngOnInit(): void {
+    this.dataService.getItems().subscribe((data: any) => {
+      this.items = data.filter((item: any) => item.type === this.type);
+    });
   }
 
   goToLogin(): void {
-    this.router.navigate(['/']); 
+    this.router.navigate(['/']);
   }
 
-  sendOrder(): void {
+  enviar() {
     console.log('Pedido enviado:', {
-      clientName: this.clientName,
-      items: this.selectedItems
+      items: this.destinoItems
     });
   }
+
 }
