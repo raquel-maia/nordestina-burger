@@ -1,152 +1,200 @@
-.main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100vh;
-    margin: auto;
+.main {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+ /*  height: 90vh; */
+  color: #fff;
 }
 
-input {
-    text-align: center;
+.logo-one {
+  align-self: flex-start; /* Alinhar no canto superior esquerdo */
+  margin-bottom: 10px; /* Adicionei um espaçamento inferior */
 }
 
-.name {
-    position: relative;
-    text-align: center;
-    font-family: 'Righteous', cursive;
-    border-radius: 10px;
-    font-size: 16px;
-    padding: 10px;
-    color: black;
-    margin-bottom: 5px;
+.logo-one img {
+  display: flex;
+  align-items: end;
+  max-width: 100%;
+  height: auto;
 }
 
-img {
-    width: 70%; 
-    margin-bottom: 10px;
-    margin-left: 40%; 
-    margin-right: auto; 
+
+.section-column {
+  flex: 1;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.text-pedido {
-    text-align: center;
-    color: white;
-    font-weight: 400;
-    font-size: 18px;
-    padding: 10px;
-    margin-bottom: 5px;
+.title, .summary-title {
+  margin-top: 0;
+  font-size: 34px;
+  margin-bottom: 30px;
+  padding: 0;
 }
 
-ul {
-    display: block;
-    list-style: none;
-    padding: 0; 
-}
-
-li {
-    text-align: center;
-    padding: 5px 0; 
+/* Estilos para os botões dos filtros */
+.product-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .filter-button {
-    width: 100%; 
-    padding: 10px;
-    text-align: center;
-    border-radius: 20px;
-    font-size: 20px; 
-    background-color: black;
-    color: white;
-    font-weight: 400;
-    border: 2px solid white;
-    margin-bottom: 5px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: white;
+  border: 2px solid white;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.filter-button:hover {
+  background-color: #333;
+}
+
+/* Estilos para os produtos */
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  align-items: center;
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  width: 249px;
+  background-color:rgba(0, 0, 0, 0.3) ;
+}
+
+.product:hover {
+  background-color: orange;
+}
+
+.product-name {
+  font-weight: 400;
+  color:white;
+  text-align: center;
+  
+}
+
+/* Estilos para o resumo da compra */
+.order-summary {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.nameClient input {
+  text-align: center;
+  font-family: 'Righteous', cursive;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 15px;
+  color: black;
+ 
+}
+
+.section-resume{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: black;
+  gap: 15px;
+  font-size: 1.2rem;
+  
+}
+
+.quantity-button {
+
+
+  width: 30px;
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+  background-color: #74432F;
+  font-size: 25px;
+
+}
+.item-remove {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.total {
+  font-weight: bold;
+  margin-top: 10px;
+  color:black;
+}
+
+
+.item-name {
+display: flex;
+gap: 5px;
+  font-weight: bold;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.item-quantity {
+  margin: 0 10px;
+}
+
+.item-price {
+  color: #007bff;
+}
+
+
+
+.item-remove:hover {
+  background-color: #c82333;
+}
+
+
+
+.send-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.send-button:hover {
+  background-color: #218838;
 }
 
 .button-back {
-    margin-left: 80%;
-    background-color: #D9D9D9;
-    color: black;
-    font-weight: 600;
-    width: 100px;
-    font-size: 15px;
-    margin: 25px 0px 0px 80%;
-    padding: 4px;
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 20px;
 }
 
-.error-message {
-    color: white;
-}
-
-@media (min-width: 992px) {
-    .container {
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 20px;
-        align-items: flex-start;
-        justify-content: flex-start;
-        margin-bottom: 0;
-        height: 90vh;
-        margin: auto;
-    }
-
-    .text-pedido {
-        text-align: center;
-        color: white;
-        font-weight: 400;
-        font-size: 40px;
-        padding: 14px;
-        margin-bottom: 70px;
-    }
-
-    button {
-        width: 100%;
-        padding: 15px;
-        text-align: center;
-        border-radius: 20px;
-        font-size: 30px;
-        background-color: black;
-        color: white;
-        font-weight: 600;
-        border: 2px solid white;
-        margin-bottom: 10px;
-    }
-
-    .name {
-        position: relative;
-        font-family: 'Righteous', cursive;
-        border-radius: 10px;
-        font-size: 20px;
-        padding: 10px;
-        color: black;
-        font-weight: 600;
-        background-color: white;
-        margin-bottom: 15px;
-    }
-
-    .img-hamburguer {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: flex-start;
-        position: relative;
-    }
-
-    img {
-        width: 490px;
-        height: 400px;
-        margin: 0;
-        margin-right: -6px;
-    }
-
-    .button-back {
-        position: absolute;
-        bottom: 30px;
-        right: 10px;
-        background-color: #D9D9D9;
-        color: black;
-        font-weight: 600;
-        width: 60px;
-        font-size: 18px;
-        padding: 5px;
-    }
+.button-back:hover {
+  background-color: #5a6268;
 }

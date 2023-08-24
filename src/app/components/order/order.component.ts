@@ -18,7 +18,7 @@ export class OrderComponent implements OnInit {
   ) {}
 
   onClick(param: string) {
-    this.type = param; // Atualiza o tipo com base no parâmetro
+    this.type = param;
     this.dataService.getItems().subscribe((data: any) => {
       this.items = data.filter((item: any) => item.type === this.type);
     });
