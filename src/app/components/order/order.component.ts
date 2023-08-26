@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products/products.service';
-
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -48,6 +47,7 @@ export class OrderComponent implements OnInit {
     this.dataService.getItems().subscribe((data: any) => {
       this.items = data.filter((item: any) => item.type === this.type);
     });
+    
   }
 
   goToLogin(): void {

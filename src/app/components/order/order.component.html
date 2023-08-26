@@ -1,16 +1,20 @@
 <main class="main">
-  <div class="logo-one">
-    <img src="../../../assets/logo-white.png" alt="nordestina-burger">
+  <div class="nav-bar">
+    <button class="nav-button" (click)="goToLogin()">Sair</button>
+    <button class="nav-button">Pedido em Espera</button>
+    <button class="nav-button">Novo Pedido</button>
   </div>
-   
+
+  <div class="sections-container">
     <section class="section-column">
+      
       <h1 class="title">SELECIONE SEU PEDIDO</h1>
       <div class="product-filters">
         <button class="filter-button" (click)="onClick('hamburgueres')">HAMBURGUERES</button>
         <button class="filter-button" (click)="onClick('cafe da manha')">CAFÉ DA MANHÃ</button>
         <button class="filter-button" (click)="onClick('bebidas')">BEBIDAS</button>
       </div>
-  
+
       <ng-container *ngIf="items.length > 0">
         <!-- <h2 class="product-title">{{ type }}</h2> -->
         <div class="product-container" *ngFor="let product of items">
@@ -19,28 +23,44 @@
           </div>
         </div>
       </ng-container>
+      
   
-      <hr>
-      <h2 class="summary-title">Resumo da Compra</h2>
-      <div class="nameClient">
-        <input type="text" placeholder="Nome do cliente">
-      </div>
-      <div class="order-summary" *ngIf="destinoItems.length > 0">
-        
-        <div class="section-resume" *ngFor="let item of destinoItems">
-          <p class="item-name">{{ item.name }}</p>
-          <div class="quantity-control">
-            <button class="quantity-button" (click)="decrementQuantity(item)">-</button>
-            <span class="item-quantity"> {{ item.quantity }}</span> 
-            <button class="quantity-button" (click)="incrementQuantity(item)">+</button>
-          </div>
-          <p class="item-price">Valor: R$ {{ item.price }}</p>
-          <button class="item-remove" (click)="decrementQuantity(item)">Remover</button>
+
+  </section>
+  <section class="section-right">
+      <h2 class="summary-title">RESUMO DA COMPRA</h2>
+      <div class="data-right">
+        <div class="nameClient">
+          <input type="text" placeholder="Nome do cliente">
         </div>
-        <p class="total">Total: R$ {{ calcularQuantidadeTotal() }}</p>
-        <button class="send-button" (click)="enviar()">Enviar Pedido</button>
+        <div class="order-summary" *ngIf="destinoItems.length > 0">
+          
+          <div class="section-resume" *ngFor="let item of destinoItems">
+            <p class="item-name">{{ item.name }}</p>
+            <div class="quantity-control">
+              <button class="quantity-button" (click)="decrementQuantity(item)">-</button>
+              <span class="item-quantity"> {{ item.quantity }}</span> 
+              <button class="quantity-button" (click)="incrementQuantity(item)">+</button>
+            </div>
+            <p class="item-price">Valor: R$ {{ item.price }}</p>
+            <button class="item-remove" (click)="decrementQuantity(item)">Remover</button>
+          </div>
+          <p class="total">Total: R$ {{ calcularQuantidadeTotal() }}</p>
+          <button class="send-button" (click)="enviar()">Enviar Pedido</button>
+        </div>
+  
+       
+
       </div>
-      <button class="button-back" (click)="goToLogin()">SAIR</button>
+      
     </section>
+
+  </div>
+  
+   
+    
+ 
+    
+
   </main>
   

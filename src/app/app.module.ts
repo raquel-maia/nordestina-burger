@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http'; // Importe o HttpClient
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/commons/footer/footer.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +17,12 @@ import { FooterComponent } from './components/commons/footer/footer.component';
     FormsModule, // Certifique-se de importar o FormsModule
     ReactiveFormsModule, // Adicione o ReactiveFormsModule
     HttpClientModule, // Adicione o HttpClientModule
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule // Importe apenas FontAwesomeModule aqui
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
