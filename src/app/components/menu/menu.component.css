@@ -99,8 +99,8 @@ button {
         color: white;
         font-weight: 400;
         font-size: 40px;
-        padding: 14px;
-        margin-bottom: 70px;
+        padding: 10px;
+        margin-bottom: 50px;
     }
 
     button {
@@ -125,7 +125,7 @@ button {
         color: black;
         font-weight: 600;
         background-color: white;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .img-hamburguer {

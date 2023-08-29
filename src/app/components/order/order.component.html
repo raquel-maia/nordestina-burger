@@ -1,10 +1,24 @@
 <main class="main">
+  
   <div class="nav-bar">
-    <button class="nav-button" (click)="goToLogin()">Sair</button>
-    <button class="nav-button">Pedido em Espera</button>
-    <button class="nav-button">Novo Pedido</button>
-  </div>
 
+    <nav class="nav-bar-buttons">
+      <button class="nav-button" (click)="goToLogin()">
+        <img src="../../../assets/sair (1).png" alt="" title="Sair">
+      </button>
+      <button class="nav-button">
+        <img src="../../../assets/clock.png" alt="" title="Pedido em Espera">
+      </button>
+      <button class="nav-button-check">
+        <img src="../../../assets/correct_121331.png" alt="" title="Pedido Finalizado">
+      </button>
+      
+    </nav>
+    <div class="burger-emoji-container">
+      <div class="burger-emoji">🍔 🍔 🍔 🍔 🍔 🍔 🍔 🍔 🍔</div>
+    </div>
+  </div>
+  
   <div class="sections-container">
     <section class="section-column">
       
@@ -19,7 +33,7 @@
         <!-- <h2 class="product-title">{{ type }}</h2> -->
         <div class="product-container" *ngFor="let product of items">
           <div class="product" (click)="moverItem(product)">
-            <p class="product-name">{{ product.name }} R$ {{ product.price }}</p>
+            <p class="product-name">{{ product.name }} R$ {{ product.price }}, 00</p>
           </div>
         </div>
       </ng-container>
@@ -27,40 +41,54 @@
   
 
   </section>
+
   <section class="section-right">
-      <h2 class="summary-title">RESUMO DA COMPRA</h2>
+    <div class="over-title">
+      <h2 class="summary-title">RESUMO DO PEDIDO</h2>
+      <div class="nameClient">
+        <input type="text" class="name" id="clientName" [(ngModel)]="clientName" placeholder="NOME DO CLIENTE">
+<p class="error-message" *ngIf="showErrorMessage">Por favor, insira o nome do cliente.</p>
+
+      </div>
+    </div>
+
+   
       <div class="data-right">
-        <div class="nameClient">
-          <input type="text" placeholder="Nome do cliente">
-        </div>
+        <h3 class="title-resume">ITEM / QTD / VALOR</h3> 
+        
+
         <div class="order-summary" *ngIf="destinoItems.length > 0">
+       
           
           <div class="section-resume" *ngFor="let item of destinoItems">
-            <p class="item-name">{{ item.name }}</p>
-            <div class="quantity-control">
+            
+            <div class="content-item">
+              
+              <p class="item-name">{{ item.name }}</p>
               <button class="quantity-button" (click)="decrementQuantity(item)">-</button>
               <span class="item-quantity"> {{ item.quantity }}</span> 
-              <button class="quantity-button" (click)="incrementQuantity(item)">+</button>
+              <button class="quantity-button" (click)="incrementQuantity(item)">+</button>  
+              <span class="item-price">Valor: R$ {{ item.price }}, 00</span>
+              <a
+                (click)="removeItem(item)"
+                type="button"
+                class="removeButton"
+              ><img class="trash" src="../../../assets/cesto-de-lixo.png" alt="trash">
+              </a>
+
             </div>
-            <p class="item-price">Valor: R$ {{ item.price }}</p>
-            <button class="item-remove" (click)="decrementQuantity(item)">Remover</button>
+            
           </div>
-          <p class="total">Total: R$ {{ calcularQuantidadeTotal() }}</p>
+          <p class="total">TOTAL: R$ {{ calcularQuantidadeTotal() }}</p>
           <button class="send-button" (click)="enviar()">Enviar Pedido</button>
         </div>
   
-       
 
       </div>
       
     </section>
-
-  </div>
   
-   
-    
- 
-    
+  </div>
 
   </main>
   
