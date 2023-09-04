@@ -56,6 +56,9 @@ export class LoginComponent {
             case 'atendente':
               this.router.navigate(['/cardapio']);
               break;
+              case 'chef':
+                this.router.navigate(['/kitchen']);
+                break;
             default:
               console.error('Função de usuário inválida:', response.user.role);
           }

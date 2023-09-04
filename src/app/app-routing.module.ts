@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginModule } from './components/login/login.module';
 import { MenuModule } from './components/menu/menu.module';
 import { OrderModule } from './components/order/order.module';
+import { KitchenModule } from './components/kitchen/kitchen.module';
 
 const routes: Routes = [{
   path:'',
@@ -15,6 +16,10 @@ const routes: Routes = [{
 {
   path:'order',
   loadChildren: () => import('./components/order/order.module').then(m => OrderModule)
+},
+{
+  path:'kitchen',
+  loadChildren: () => import('./components/kitchen/kitchen.module').then(m => KitchenModule)
 }
 
 ];

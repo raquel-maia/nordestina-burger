@@ -10,6 +10,8 @@ export class OrderComponent implements OnInit {
   items: any[] = [];
   destinoItems: any[] = [];
   type: string = 'hamburgueres';
+  clientName: string = '';
+  showErrorMessage: boolean = false;
 
   constructor(
     private dataService: ProductsService,
@@ -39,6 +41,14 @@ export class OrderComponent implements OnInit {
     }
   }
 
+  removeItem(product: any) {
+    const index = this.destinoItems?.indexOf(product);
+    if (index !== undefined && index !== -1) {
+      this.destinoItems?.splice(index, 1);
+      this.calcularQuantidadeTotal();
+    }
+  }
+
   calcularQuantidadeTotal(): number {
     return this.destinoItems.reduce((total, item) => total + (item.quantity * item.price), 0);
   }
@@ -55,9 +65,13 @@ export class OrderComponent implements OnInit {
   }
 
   enviar() {
-    console.log('Pedido enviado:', {
-      items: this.destinoItems
-    });
+    if (this.clientName.trim() === '') {
+      this.showErrorMessage = true;
+    } else {
+      this.showErrorMessage = false;
+      // Atualizar depois para página de cozinha
+      this.router.navigate(['/cardapio']);
+    }
   }
 
 }
