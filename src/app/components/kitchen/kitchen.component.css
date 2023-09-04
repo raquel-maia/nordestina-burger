@@ -1,0 +1,150 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh; 
+
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.309);
+    color: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    position: sticky;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.nav-bar-buttons {
+    display: flex;
+
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+
+}
+
+.nav-button img {
+    width: 30px;
+    height: 30px;
+}
+
+.nav-button:hover,
+.nav-button-check:hover {
+    background-color: rgba(229, 150, 58, 0.797);
+    transform: scale(1.05);
+}
+
+.nav-button,
+.nav-button-check {
+    background-color: #F4AC5B;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.content{
+ display: flex;
+}
+
+.img-logo img {
+    max-width: 100%;
+    animation: anime 1.4s ease forwards; 
+    opacity: 0; 
+}
+@keyframes anime {
+    from {
+        transform: translateX(50px); 
+        opacity: 0; 
+    }
+    to {
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+.title {
+    flex: 0 0 auto;
+    text-align: center;
+    margin-top: 10%;
+
+}
+
+.welcome-title{
+    color: white;
+    font-size: 35px;
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow: hidden;
+    }
+    .nav-bar {
+        margin-top: 10px;
+        padding: 1px;
+        overflow-y: auto;
+        text-align: center;
+    }
+    .nav-bar-buttons {
+        display: flex;
+        justify-content: center;
+    }
+    .nav-button {
+        margin: 10px 0;
+        margin-left: 5px;
+    }
+
+    .content {
+        flex-direction: column; 
+        text-align: center; 
+        margin-bottom: 20px;
+    }
+
+    .img-and-text {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .img-logo img {
+        
+    }
+}
+
+.img-logo img {
+        max-width: 100%; 
+        height: auto;
+        animation: anime 1.4s ease forwards; 
+        opacity: 0; 
+}
+.welcome-title {
+        text-align: center;
+        font-size: 28px;
+        margin-top: 40%;
+}
+
+
+@keyframes anime {
+        from {
+            transform: translateX(50px); 
+            opacity: 0; 
+        }
+        to {
+            transform: translateX(0); 
+            opacity: 1; 
+        }
+}
