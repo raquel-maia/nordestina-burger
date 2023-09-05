@@ -4,6 +4,8 @@ import { LoginModule } from './components/login/login.module';
 import { MenuModule } from './components/menu/menu.module';
 import { OrderModule } from './components/order/order.module';
 import { KitchenModule } from './components/kitchen/kitchen.module';
+import { OrdersComponent } from './components/kitchen/orders/orders.component';
+import { OrdersModule } from './components/kitchen/orders/orders.module';
 
 const routes: Routes = [{
   path:'',
@@ -20,6 +22,10 @@ const routes: Routes = [{
 {
   path:'kitchen',
   loadChildren: () => import('./components/kitchen/kitchen.module').then(m => KitchenModule)
+},
+{
+  path:'cooking',
+  loadChildren: () => import('./components/kitchen/orders/orders.module').then(m => OrdersModule)
 }
 
 ];

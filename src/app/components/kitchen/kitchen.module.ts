@@ -5,9 +5,11 @@ import { KitchenRoutingModule } from './kitchen-routing.module';
 import { KitchenComponent } from './kitchen.component';
 
 
+
 @NgModule({
   declarations: [
-    KitchenComponent
+    KitchenComponent,
+    
   ],
   imports: [
     CommonModule,

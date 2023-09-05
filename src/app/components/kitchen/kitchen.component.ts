@@ -16,9 +16,12 @@ export class KitchenComponent {
     private router: Router
   ) {}
 
-
   goToLogin(): void {
     this.router.navigate(['/']);
+  }
+
+  goToEspera(): void {
+    this.router.navigate(['/cooking']);
   }
 
 }
