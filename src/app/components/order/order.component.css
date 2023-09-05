@@ -21,7 +21,7 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.309);
+  background-color: black;
   color: white;
   border-radius: 20px;
 }
@@ -35,7 +35,7 @@ body, html {
 .nav-button, .nav-button-check {
   background-color: #F4AC5B;
   color: white;
-  border: none;
+  border: 2px solid white;
   border-radius: 20px;
   padding: 10px 20px;
   cursor: pointer;
