@@ -13,6 +13,7 @@ export class OrderComponent implements OnInit {
   destinoItems: any[] = [];
   type: string = 'hamburgueres';
   clientName: string = '';
+  isClientNameEntered: boolean = false;
   showErrorMessage: boolean = false;
   garcon:any={};
   errorMessage:string = '';
@@ -98,16 +99,19 @@ export class OrderComponent implements OnInit {
   }
 
   enviar() {
-
-/*     if (this.clientName.trim() === '') {
+    if (this.destinoItems.length === 0) {
+      this.errorMessage = 'Não é possível enviar um pedido vazio.';
+      return; 
+    } else if (this.clientName.trim() === '') {
       this.showErrorMessage = true;
+      return; // Retorna imediatamente se o nome do cliente não foi inserido
     } else {
       this.showErrorMessage = false;
-
-    }  */
+      this.isClientNameEntered = true; // Define a variável de controle para true
+    }  
 
     const pedido = {
-      userId:this.garcon.id,
+      userId: this.garcon.id,
       clientName: this.clientName,
       products: this.destinoItems.map(cartItem => ({
         product: cartItem,
@@ -115,12 +119,10 @@ export class OrderComponent implements OnInit {
         dateEntry: this.formatarData()
       })),
       status: "pending",
-      dateEntry:this.formatarData()
-
-
+      dateEntry: this.formatarData()
     }
-    console.log(pedido)
-  
+
+    console.log(pedido);
 
     this.orderService.addOrder(pedido).subscribe(
       response => {
@@ -138,9 +140,10 @@ export class OrderComponent implements OnInit {
         this.errorMessage = 'Erro ao enviar o pedido. Por favor, tente novamente mais tarde.';
       }
     );
+  }
   
 
-  }
+  
 
   
 
