@@ -22,7 +22,7 @@
 .nav-bar {
     display: flex;
     flex-direction: column;
-    background-color: black;
+
     align-items: center;
     padding: 10px;
     
@@ -42,7 +42,7 @@
 
 .nav-button {
     background: none;
-    border: none;
+    
     cursor: pointer;
     margin-left: 10px;
 
@@ -51,11 +51,12 @@
 .nav-button img {
     width: 30px;
     height: 30px;
+    
 }
 
 .nav-button:hover,
 .nav-button-check:hover {
-    background-color: rgba(255, 68, 0, 0.531);
+    background-color: white;
     transform: scale(1.05);
 }
 
@@ -63,7 +64,7 @@
 .nav-button-check {
     background-color: #F4AC5B;
     color: white;
-    border:3px solid white;
+    border:3px solid black;
     border-radius: 20px;
     padding: 10px 20px;
     margin-left: 45px;
@@ -93,34 +94,47 @@
 }
 
 
-
-
-
 @media (max-width: 768px) {
     body {
-        overflow: hidden;
+        height: 100vh;
+        overflow-x: hidden; /* Adicione overflow-x: hidden para evitar rolagem horizontal */
     }
     .nav-bar {
-        margin-top: 10px;
-        padding: 1px;
-        overflow-y: auto;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        background-color:saddlebrown ;
+        align-items: center;
+        padding: 10px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 800px;
+        box-sizing: border-box;
+ 
+
+        margin-top: 5px;
+        margin-bottom: 15px;
     }
     .nav-bar-buttons {
         display: flex;
         justify-content: center;
     }
     .nav-button {
-        margin: 10px 0;
+        border: 2px solid black;
         margin-left: 5px;
     }
 
     .content {
         flex-direction: column; 
         text-align: center; 
-        margin-bottom: 20px;
+      
+        
+       
     }
+.container{
+    overflow-x: hidden; 
+    height: 100vh;
 
+}
     .img-and-text {
         flex-direction: column; 
         align-items: center; 
@@ -135,8 +149,8 @@
 }
 .welcome-title {
         text-align: center;
-        font-size: 28px;
-        margin-top: 40%;
+        font-size: 25px;
+        margin-top: 30%;
 }
 
 

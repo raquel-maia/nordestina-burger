@@ -3,9 +3,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  height: 120vh;
+  justify-content: center;
+  height: 90vh;
   overflow-y: auto;
+}
+
+iframe{
+  align-items: center;
 }
 
 
@@ -18,7 +22,7 @@
 .title{
   font-size: 40px;
   color: rgb(233, 147, 49);
-  margin: 10px 0;
+  margin: 5px 0;
   text-shadow: rgba(255, 255, 255, 0.269);
 }
 .select-order {
@@ -106,7 +110,7 @@
 .order .finish {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .button-finish {
@@ -126,6 +130,7 @@
 
 /* Estilo para a mensagem de nenhum pedido */
 .fade-in {
+  color: white;
   font-size: 40px;;
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
@@ -142,36 +147,79 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    height: auto;
-  }
+    height: 200vh;
 
-  .title {
-    font-size: 15px; 
-    margin: 10px 0;
+    overflow-y: auto;
   }
 
   .content-order {
-    width: 90%;
-    padding: 10px;
+    margin-top: 50px;
+    border: 5px solid white;
+    background-color: black;
+    border-radius: 25px;
+    margin-bottom: 5px;
+    padding: 20px;
+    width: 50%;
+    color: white;
+
+  }
+  
+
+  .title {
+    text-align: center;
+    font-size: 25px;
+    margin: 30px 0;
   }
 
   .order-p {
-    font-size: 14px; 
+    font-size: 20px;
     color: rgb(233, 147, 49);
   }
 
   .list li p.qty {
-    font-size: 20px; 
-    margin-right: 5px; 
+    font-size: 15px;
+    margin-right: 5px;
   }
 
   .button-out {
-    margin-left: 10px; 
+    position: absolute;
+    top: 5px;
+    right: 2px; 
+    padding: 5px ;
   }
 
   .out-button {
-    padding: 5px 8px; 
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 5px 8px;
+    background-color: black;
+    border: 2px solid white;
+    color: rgb(233, 147, 49);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
 
+  .out-button img {
+    max-width: 14px;
+    max-height: 14px;
+  }
 
+  .fade-in {
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+
+  iframe{
+    width: 350px;
+    height: 400px;
+  }
+
+  .content-order {
+    width: 75%;
+    padding: 10px;
+  }
 }
