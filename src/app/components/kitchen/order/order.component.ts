@@ -98,6 +98,10 @@ export class OrderComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  goToFinish(): void {
+    this.router.navigate(['/finalizado']);
+  }
+
   enviar() {
     if (this.destinoItems.length === 0) {
       this.errorMessage = 'Não é possível enviar um pedido vazio.';

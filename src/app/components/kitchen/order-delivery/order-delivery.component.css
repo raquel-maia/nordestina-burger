@@ -1,0 +1,227 @@
+/* Estilo para o container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    overflow-y: auto;
+  }
+  
+  iframe{
+    align-items: center;
+  }
+  
+  
+  
+  .order-p{
+    font-size: 28px;
+    color: rgb(233, 147, 49);
+  }
+  
+  .title{
+    font-size: 40px;
+    color: rgb(233, 147, 49);
+    margin: 5px 0;
+    text-shadow: rgba(255, 255, 255, 0.269);
+  }
+  .select-order {
+    overflow-y: auto;
+  }
+  
+  .list ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Estilo para cada item da lista (li) */
+  .list li {
+    display: flex;
+    justify-content: left; /* Correção: era "justify-content: left;" */
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid white;
+    
+  }
+  
+  /* Estilo para o número da quantidade (p) */
+  .list li p.qty {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+    color: rgb(233, 147, 49);;
+  }
+  
+  
+  .button-out {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 20px;
+    position: absolute; 
+    top: 10px; 
+    right: 50px; 
+  }
+  
+  .out-button {
+    background-color: black;
+    border: 2px solid white;
+    color: rgb(233, 147, 49);;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .out-button img {
+    max-width: 24px;
+    max-height: 24px;
+    align-items: left;
+  }
+  
+  /* Estilo para o título "PEDIDOS EM ESPERA" */
+  
+  
+  /* Estilo para a caixa de pedidos */
+  .content-order {
+    border: 5px solid white;
+    background-color: black;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 50%;
+    color: white;
+  }
+  
+  /* Estilo para as informações do pedido */
+  .order-div p {
+  
+    margin: 5px 0;
+  }
+  
+  /* Estilo para a lista de produtos */
+  .productsQty p {
+   
+    margin: 5px 0;
+  }
+  
+  /* Estilo para os botões de ação */
+  .order .finish {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .button-finish {
+    background-color: #8B4513;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .button-finish:hover {
+    background-color: #08842d90;
+    color: white;
+  }
+  
+  /* Estilo para a mensagem de nenhum pedido */
+  .fade-in {
+    color: white;
+    font-size: 40px;;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .container {
+      max-height: 750px;
+      overflow-y: auto;
+    }
+  
+    .content-order {
+      margin-top: 5px;
+      border: 5px solid white;
+      background-color: black;
+      border-radius: 25px;
+      margin-bottom: 5px;
+      padding: 20px;
+      width: 50%;
+      color: white;
+  
+    }
+    
+  
+    .title {
+      text-align: center;
+      font-size: 25px;
+    
+    }
+  
+    .order-p {
+      font-size: 20px;
+      color: rgb(233, 147, 49);
+    }
+  
+    .list li p.qty {
+      font-size: 15px;
+      margin-right: 5px;
+    }
+  
+    .button-out {
+      position: absolute;
+      top: 5px;
+      right: 2px; 
+      padding: 5px ;
+    }
+  
+    .out-button {
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 5px 8px;
+      background-color: black;
+      border: 2px solid white;
+      color: rgb(233, 147, 49);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+  
+    .out-button img {
+      max-width: 14px;
+      max-height: 14px;
+    }
+  
+    .fade-in {
+      color: white;
+      font-size: 15px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+  
+    iframe{
+      width: 350px;
+      height: 400px;
+    }
+  
+    .content-order {
+      width: 75%;
+  
+    }
+
+
+
+  }

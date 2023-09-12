@@ -24,4 +24,8 @@ export class KitchenComponent {
     this.router.navigate(['/cooking']);
   }
 
+  goToFinish(): void {
+    this.router.navigate(['/finalizado']);
+  }
+
 }

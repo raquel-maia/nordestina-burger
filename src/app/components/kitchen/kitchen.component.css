@@ -96,12 +96,12 @@
 
 @media (max-width: 768px) {
     body {
-        height: 100vh;
-        overflow-x: hidden; /* Adicione overflow-x: hidden para evitar rolagem horizontal */
+        height: 65vh;
+        overflow-x: auto; /* Adicione overflow-x: hidden para evitar rolagem horizontal */
     }
     .nav-bar {
         display: flex;
-        flex-direction: column;
+       /*  flex-direction: column; */
         background-color:saddlebrown ;
         align-items: center;
         padding: 10px;
@@ -109,8 +109,6 @@
         width: 100%;
         max-width: 800px;
         box-sizing: border-box;
- 
-
         margin-top: 5px;
         margin-bottom: 15px;
     }
@@ -126,13 +124,10 @@
     .content {
         flex-direction: column; 
         text-align: center; 
-      
-        
-       
     }
 .container{
     overflow-x: hidden; 
-    height: 100vh;
+
 
 }
     .img-and-text {

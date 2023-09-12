@@ -1,0 +1,43 @@
+<section class="container">
+    <div class="button-out">
+      <button class="out-button" (click)="goToLogin()">
+          <p>SAIR</p>
+      </button>
+  
+  </div> 
+  
+     
+      <p class="title">PEDIDOS FINALIZADO</p>
+     
+  <div class="content-order" *ngFor="let order of OrderDelivery">
+      <div class="order-div">
+          <p>ID do pedido: {{ order.id }}</p>
+              <p>Atendente: {{ order.userId }}</p>
+              <p>Cliente: {{ order.clientName }}</p>
+              <p>Data de entrada: {{ order.dateEntry | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+      </div>
+      <div class="order">
+          <div class="select-order">
+              <div class="productsQty">
+                <!-- <p>Quantidade</p> -->
+                <p class="order-p">Pedidos:</p>
+                <div class='list' *ngFor="let product of order.products">
+                  <ol>
+                    <li>
+                      <p class="qty">{{ product.qty}}</p>
+                    
+                      <p class="productName">{{ product.product.name}}</p>
+                    </li>
+                  </ol>
+                  
+                </div>
+            </div>
+          </div>
+          
+      </div>   
+  
+  </div>
+  
+  
+  
+  </section>

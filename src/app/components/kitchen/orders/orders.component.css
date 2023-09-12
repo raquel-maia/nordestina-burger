@@ -145,15 +145,14 @@ iframe{
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .container {
-    height: 200vh;
-
+    max-height: 750px;
     overflow-y: auto;
   }
 
   .content-order {
-    margin-top: 50px;
+    margin-top: 5px;
     border: 5px solid white;
     background-color: black;
     border-radius: 25px;
@@ -168,7 +167,7 @@ iframe{
   .title {
     text-align: center;
     font-size: 25px;
-    margin: 30px 0;
+  
   }
 
   .order-p {
@@ -220,6 +219,6 @@ iframe{
 
   .content-order {
     width: 75%;
-    padding: 10px;
+
   }
 }
